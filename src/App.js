@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import googleLogo from "./img/google-logo.png";
+import "./App.css";
+import Search from "./components/search";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      keyword: ""
+    };
+  }
+
+  handleKeyUp = e => {
+    let keyword = e.target.value;
+    this.setState({
+      keyword
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <img src={googleLogo} className="App-logo" alt="logo" />
+          <Search keyword={this.state.keyword} onChange={this.handleKeyUp} />
         </header>
       </div>
     );
