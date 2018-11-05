@@ -5,6 +5,7 @@ const Search = props => {
     <div id="search-wrapper">
       <input
         id="q"
+        ref="search"
         aria-hidden="true"
         autoComplete="off"
         name="q"
@@ -12,6 +13,7 @@ const Search = props => {
         onChange={props.onChange}
       />
       <p>Keyword: {props.keyword}</p>
+      <p>A: {props.a}</p>
     </div>
   );
 };
